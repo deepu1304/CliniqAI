@@ -3,9 +3,7 @@ import LoginForm from '../components/LoginForm';
 import { useAuth } from '../hooks/useAuth';
 import type { LoginCredentials } from '../types/auth';
 
-// The page is thin — it just wires the hook to the form.
-// All logic lives in useAuth, all UI in LoginForm.
-// This separation is the React industry standard pattern.
+
 export default function LoginPage() {
   const navigate = useNavigate();
   const { login, isLoading, error } = useAuth();
