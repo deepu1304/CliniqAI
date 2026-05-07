@@ -1,3 +1,4 @@
+// Shared auth types — single source of truth for the whole app
 export type UserRole = 'doctor' | 'nurse' | 'admin';
 
 export interface LoginCredentials {
@@ -11,8 +12,8 @@ export interface AuthUser {
   name: string;
   email: string;
   role: UserRole;
-  token: string;         
-  tokenExpiry: number;  
+  token: string;          
+  tokenExpiry: number;   
 }
 
 export interface AuthState {

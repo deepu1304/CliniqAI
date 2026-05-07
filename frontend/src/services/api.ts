@@ -1,12 +1,12 @@
 import axios from 'axios';
 
+
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:8000',
   timeout: 10_000,
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Attach JWT on every request automatically
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('cliniqai_token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
@@ -27,7 +27,6 @@ api.interceptors.response.use(
 
 export default api;
 
-// Auth-specific calls
 export const authApi = {
   login: (email: string, password: string) =>
     api.post<{ access_token: string; user: Omit<import('./types/auth').AuthUser, 'token'> }>(
