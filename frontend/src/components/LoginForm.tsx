@@ -16,9 +16,11 @@ export default function LoginForm({ onSubmit, isLoading, error }: Props) {
   const [showPw, setShowPw] = useState(false);
   const [touched, setTouched] = useState({ email: false, password: false });
 
+  // Client-side validation — same rules the backend enforces
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const pwValid = password.length >= 8;
 
+  // Password strength: 0-4 based on complexity
   const strength = [
     password.length >= 8,
     /[A-Z]/.test(password),

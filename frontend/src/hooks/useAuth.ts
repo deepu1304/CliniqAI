@@ -2,7 +2,8 @@ import { useState, useCallback } from 'react';
 import { authApi } from '../services/api';
 import type { AuthState, AuthUser, LoginCredentials } from '../types/auth';
 
-
+// Why a custom hook? Keeps auth logic out of components entirely.
+// Components just call login() and read user — no axios in JSX.
 export function useAuth() {
   const [state, setState] = useState<AuthState>({
     user: null,

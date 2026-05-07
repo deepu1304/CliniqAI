@@ -3,7 +3,6 @@ import LoginForm from '../components/LoginForm';
 import { useAuth } from '../hooks/useAuth';
 import type { LoginCredentials } from '../types/auth';
 
-
 export default function LoginPage() {
   const navigate = useNavigate();
   const { login, isLoading, error } = useAuth();
